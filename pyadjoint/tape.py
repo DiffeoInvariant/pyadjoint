@@ -143,6 +143,12 @@ class Tape(object):
         for i in range(len(self._blocks)):
             self._blocks[i].evaluate_tlm()
 
+    def evaluate_tlm_matrix(self, inputs=None, outputs=None, markings=False):
+        nodes, blocks = self.find_relevant_nodes(inputs, outputs)
+        with self.marked_nodes(nodes, find_outputs=False):
+            for block in blocks:
+                block.evaluate_tlm_matrix(markings=True)
+
     def evaluate_hessian(self, markings=False):
         for i in range(len(self._blocks) - 1, -1, -1):
             self._blocks[i].evaluate_hessian(markings=markings)

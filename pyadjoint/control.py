@@ -91,6 +91,14 @@ class Control(object):
     def tlm_value(self, value):
         self.block_variable.tlm_value = value
 
+    @property
+    def tlm_matrix(self):
+        return self.block_variable.tlm_matrix
+
+    @tlm_matrix.setter
+    def tlm_matrix(self, value):
+        self.block_variable.tlm_matrix = value
+
     def __getattr__(self, item):
         return getattr(self.control, item)
 

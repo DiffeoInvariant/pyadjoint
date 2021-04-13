@@ -126,6 +126,13 @@ class AdjFloat(OverloadedType, float):
     def _ad_copy(self):
         return self
 
+    def _ad_dim(self):
+        return 1
+
+    @property
+    def tf_name(self):
+        return str(self.__class__.__name__) + "_" + str(self.block_variable)
+
 
 _min = min
 _max = max

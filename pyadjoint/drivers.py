@@ -74,7 +74,7 @@ def compute_jacobian_action(J, m, m_dot, options=None, tape=None):
     return J.delist(Jmdots)
 
 
-def compute_jacobian_matrix(J, m, m_jac=None, tape=None,)
+def compute_jacobian_matrix(J, m, m_jac=None, tape=None):
     """
     Compute dJdm matrix.
 
@@ -150,8 +150,7 @@ def compute_hessian(J, m, m_dot, options=None, tape=None):
     return m.delist(r)
 
 
-def compute_hessian_action(J, m, m_dot, options=None, tape=None, hessian_value=1.0,
-) -> Union[List[OverloadedType], OverloadedType]:
+def compute_hessian_action(J, m, m_dot, options=None, tape=None, hessian_value=1.0):
     """
     Compute the Hessian of J in a direction m_dot at the current value of m
 
